@@ -1,5 +1,5 @@
 import { createGoogleGenerativeAI } from '@ai-sdk/google'
-import { streamText } from 'ai'
+import { streamText, toUIMessageStream, createUIMessageStreamResponse } from 'ai'
 
 export const runtime = 'edge'
 
@@ -27,5 +27,6 @@ Sois amical, concis et réponds en français sauf si on te pose une question en 
     messages,
   })
 
-  return result.toDataStreamResponse()
+  const uiStream = toUIMessageStream({ stream: result.stream })
+  return createUIMessageStreamResponse({ stream: uiStream })
 }
