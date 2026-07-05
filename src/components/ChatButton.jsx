@@ -64,13 +64,13 @@ function ChatModal({ onClose }) {
 
   function handleSuggestionClick(suggestion) {
     setInput('')
-    sendMessage(suggestion)
+    sendMessage({ text: suggestion })
   }
 
   function onSubmit(e) {
     e.preventDefault()
     if (!input.trim() || isLoading) return
-    sendMessage(input)
+    sendMessage({ text: input })
     setInput('')
   }
 
