@@ -3,16 +3,17 @@ import { streamText } from 'ai'
 
 export const runtime = 'edge'
 
-const google = createGoogleGenerativeAI({
-  apiKey: process.env.GEMINI_API_KEY || process.env.GOOGLE_GENERATIVE_AI_API_KEY,
-})
-
 export async function POST(req) {
-  const { messages } = await req.json()
+  try {
+    const google = createGoogleGenerativeAI({
+      apiKey: process.env.GEMINI_API_KEY || process.env.GOOGLE_GENERATIVE_AI_API_KEY,
+    })
 
-  const result = streamText({
-    model: google('gemini-1.5-flash'),
-    system: `Tu es un assistant conversationnel intégré au portfolio de RANDRIATSITOHAINA Tsimamandro Feno (Victor Feno).
+    const { messages } = await req.json()
+
+    const result = streamText({
+      model: google('gemini-1.5-flash'),
+      system: `Tu es un assistant conversationnel intégré au portfolio de RANDRIATSITOHAINA Tsimamandro Feno (Victor Feno).
 
 À propos de lui :
 - Étudiant en 2ème année à l'ENI Toliara (Madagascar)
@@ -24,8 +25,15 @@ export async function POST(req) {
 - Projets : Vondrona (réseau social ENI), DevHub (plateforme développeurs), StageLink (plateforme de stages), To-Do List, Solveur Math, Portfolio (ce site)
 
 Sois amical, concis et réponds en français sauf si on te pose une question en anglais. Tu peux parler de ses projets, compétences et expériences. Si on te demande quelque chose hors sujet, réponds poliment que tu es là pour parler de Victor et de son travail.`,
-    messages,
-  })
+      messages,
+    })
 
-  return result.toUIMessageStreamResponse()
+    return result.toUIMessageStreamResponse()
+  } catch (e) {
+    console.error('Chat API error:', e)
+    return new Response(JSON.stringify({ error: e.message }), {
+      status: 500,
+      headers: { 'content-type': 'application/json' },
+    })
+  }
 }
