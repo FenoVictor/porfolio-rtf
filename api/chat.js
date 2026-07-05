@@ -1,13 +1,17 @@
-import { google } from '@ai-sdk/google'
+import { createGoogleGenerativeAI } from '@ai-sdk/google'
 import { streamText } from 'ai'
 
 export const runtime = 'edge'
+
+const google = createGoogleGenerativeAI({
+  apiKey: process.env.GEMINI_API_KEY || process.env.GOOGLE_GENERATIVE_AI_API_KEY,
+})
 
 export async function POST(req) {
   const { messages } = await req.json()
 
   const result = streamText({
-    model: google('gemini-2.0-flash-exp'),
+    model: google('gemini-1.5-flash'),
     system: `Tu es un assistant conversationnel intégré au portfolio de RANDRIATSITOHAINA Tsimamandro Feno (Victor Feno).
 
 À propos de lui :
