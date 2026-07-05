@@ -12,7 +12,6 @@ import CustomCursor from './components/CustomCursor'
 import LoadingScreen from './components/LoadingScreen'
 import ParticlesBackground from './components/ParticlesBackground'
 import EasterEgg from './components/EasterEgg'
-import ChatButton from './components/ChatButton'
 
 function App() {
   const [isLoading, setIsLoading] = useState(true)
@@ -32,7 +31,6 @@ function App() {
       <ParticlesBackground />
       <CustomCursor />
       <EasterEgg />
-      <ChatButton />
       <motion.div
         className="relative z-10"
         initial={{ opacity: 0 }}

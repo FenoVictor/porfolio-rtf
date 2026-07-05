@@ -143,15 +143,6 @@ export const translations = {
       demoLabel: 'Démo',
       codeLabel: 'Code',
     },
-    chat: {
-      eyebrow: '// Chat IA',
-      titlePrefix: 'Pose tes questions à ',
-      titleHighlight: 'mon assistant',
-      subtitle: 'Un assistant alimenté par Gemini (Google AI) — pose-lui des questions sur mon parcours, mes compétences ou mes projets.',
-      placeholder: 'Pose une question sur mon parcours, mes compétences ou mes projets...',
-      inputPlaceholder: 'Écris ton message...',
-      error: 'Une erreur est survenue. Vérifie que la clé API Gemini est configurée.',
-    },
     contact: {
       eyebrow: '// Contact',
       titlePrefix: 'Discutons de votre ',
@@ -321,15 +312,6 @@ export const translations = {
       techLabel: 'Technologies used',
       demoLabel: 'Demo',
       codeLabel: 'Code',
-    },
-    chat: {
-      eyebrow: '// AI Chat',
-      titlePrefix: 'Ask ',
-      titleHighlight: 'my assistant',
-      subtitle: 'Powered by Gemini (Google AI) — ask about my background, skills, or projects.',
-      placeholder: 'Ask about my background, skills, or projects...',
-      inputPlaceholder: 'Type your message...',
-      error: 'Something went wrong. Make sure the Gemini API key is configured.',
     },
     contact: {
       eyebrow: '// Contact',
