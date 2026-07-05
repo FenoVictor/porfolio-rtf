@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
-import { Home, User, Code2, Briefcase, Rocket, Mail, Star, Globe, Sun, Moon, Menu, X } from 'lucide-react'
+import { Home, User, Code2, Briefcase, Bot, Rocket, Mail, Star, Globe, Sun, Moon, Menu, X } from 'lucide-react'
 import { navLinks } from '../data/navLinks'
 import rtfLogo from '../assets/rtf-logo.webp'
 import { useTheme } from '../context/ThemeContext'
@@ -8,7 +8,7 @@ import { useLanguage } from '../context/LanguageContext'
 
 // Correspondance entre le nom d'icône (string, stocké dans data/) et le
 // composant lucide-react réel. On évite d'importer dynamiquement par string.
-const iconMap = { Home, User, Code2, Briefcase, Rocket, Mail, Star }
+const iconMap = { Home, User, Code2, Briefcase, Bot, Rocket, Mail, Star }
 
 function Navbar() {
   const [activeSection, setActiveSection] = useState('accueil')

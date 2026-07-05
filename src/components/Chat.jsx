@@ -1,9 +1,9 @@
-import { useRef, useEffect } from 'react'
+import { useRef, useEffect, useState } from 'react'
 import { useChat } from '@ai-sdk/react'
 import { motion } from 'framer-motion'
 import { Send, Bot, User, Sparkles } from 'lucide-react'
 import { useLanguage } from '../context/LanguageContext'
-import { Reveal, RevealStagger, RevealItem } from './Reveal'
+import { Reveal } from './Reveal'
 
 function ChatMessage({ role, content }) {
   const isUser = role === 'user'
@@ -36,11 +36,13 @@ function Chat() {
   const { t, language } = useLanguage()
   const bottomRef = useRef(null)
   const inputRef = useRef(null)
+  const [input, setInput] = useState('')
 
-  const { messages, input, handleInputChange, handleSubmit, isLoading, error } =
-    useChat({
-      api: '/api/chat',
-    })
+  const { messages, sendMessage, status, error } = useChat({
+    api: '/api/chat',
+  })
+
+  const isLoading = status === 'streaming' || status === 'submitted'
 
   useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: 'smooth' })
@@ -59,15 +61,16 @@ function Chat() {
   ]
 
   function handleSuggestionClick(suggestion) {
-    handleInputChange({ target: { value: suggestion } })
-    setTimeout(() => {
-      inputRef.current?.focus()
-    }, 0)
+    setInput(suggestion)
+    sendMessage(suggestion)
+    inputRef.current?.focus()
   }
 
   function onSubmit(e) {
     e.preventDefault()
-    handleSubmit(e)
+    if (!input.trim() || isLoading) return
+    sendMessage(input)
+    setInput('')
   }
 
   return (
@@ -151,7 +154,7 @@ function Chat() {
                 <input
                   ref={inputRef}
                   value={input}
-                  onChange={handleInputChange}
+                  onChange={(e) => setInput(e.target.value)}
                   placeholder={t('chat.inputPlaceholder')}
                   className="flex-1 rounded-xl border border-border-subtle bg-bg-primary/60 px-4 py-2.5 text-sm text-text-primary placeholder-text-muted outline-none transition-all duration-200 focus:border-accent-purple/40 focus:ring-1 focus:ring-accent-purple/20"
                 />
