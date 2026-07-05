@@ -1,0 +1,23 @@
+PROMPT D'AMÉLIORATION DES ANIMATIONS — Portfolio Victor Feno
+
+Améliore mon portfolio avec des animations modernes et fluides en utilisant Framer Motion. Voici les animations à implémenter :
+
+1. Écran de chargement (loader) avec logo VF.dev qui pulse et une barre de dégradé qui s'anime, avant d'afficher le contenu.
+
+2. Navbar avec apparition slide-down au chargement, liens avec soulignement animé au hover, menu hamburger pour mobile avec animation de croix, et fond glassmorphism qui devient plus opaque au scroll.
+
+3. Hero avec apparition staggered du texte (titre, sous-titre, description, boutons), terminal développeur avec effet machine à écrire (whoami → skills → status), orbes flottantes en arrière-plan avec animation de flottement, et boutons avec glow au hover.
+
+4. About avec apparition staggered des paragraphes, timeline avec points qui apparaissent en spring et ligne qui se dessine, compteurs numériques qui défilent au scroll.
+
+5. Skills avec cartes qui s'élèvent au hover, barres de progression qui se remplissent au scroll, apparition staggered des cartes, dégradés par catégorie.
+
+6. Projects avec effet 3D tilt qui suit la souris (rotation X/Y basée sur la position), apparition staggered, tags technologiques qui grossissent au hover.
+
+7. Contact avec formulaire aux champs focus animés, cartes d'information avec bordure glow au hover, bouton avec dégradé et ombre lumineuse.
+
+8. Footer avec cercles de réseaux sociaux animés, bouton de retour en haut avec hover.
+
+9. Global : scrollbar personnalisée, sélection stylée, smooth scroll, dégradés animés sur les titres de section.
+
+Utilise Tailwind CSS pour le styling et Framer Motion pour toutes les animations. Garde le thème sombre existant (#050505) avec les accents bleu/violet.

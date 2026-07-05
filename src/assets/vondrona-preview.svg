@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="450" viewBox="0 0 800 450">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1e1b4b"/>
+      <stop offset="100%" style="stop-color:#312e81"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="450" fill="url(#bg)"/>
+  <circle cx="650" cy="100" r="80" fill="#6366f1" opacity="0.15"/>
+  <circle cx="150" cy="350" r="60" fill="#818cf8" opacity="0.1"/>
+  <text x="400" y="160" text-anchor="middle" fill="#a5b4fc" font-family="monospace" font-size="14">// Social Network</text>
+  <text x="400" y="210" text-anchor="middle" fill="#e0e7ff" font-family="sans-serif" font-size="32" font-weight="bold">Vondrona</text>
+  <text x="400" y="250" text-anchor="middle" fill="#c7d2fe" font-family="sans-serif" font-size="16">ENI Toliara</text>
+  <rect x="220" y="290" rx="12" width="360" height="36" fill="#4f46e5" opacity="0.3"/>
+  <text x="400" y="314" text-anchor="middle" fill="#a5b4fc" font-family="monospace" font-size="12">React · Node.js · Express · MySQL · Socket.IO</text>
+  <line x1="100" y1="380" x2="700" y2="380" stroke="#6366f1" stroke-width="1" opacity="0.3"/>
+  <circle cx="100" cy="380" r="3" fill="#818cf8"/>
+  <circle cx="400" cy="380" r="3" fill="#818cf8"/>
+  <circle cx="700" cy="380" r="3" fill="#818cf8"/>
+</svg>

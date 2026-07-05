@@ -1,0 +1,92 @@
+Améliore toutes les animations de ce portfolio avec framer-motion (React).
+
+Étapes à suivre :
+
+1. Installer framer-motion : npm install framer-motion
+
+2. Créer un composant Reveal.jsx réutilisable avec 3 exports :
+   - Reveal : apparition au scroll (fade + slide up). Props : delay, duration, y, once.
+   - RevealStagger : conteneur pour apparitions décalées. Props : staggerDelay, childDelay.
+   - RevealItem : enfant d'un RevealStagger. Props : y.
+
+3. Dans tailwind.config.js, ajouter les keyframes :
+   - pulse-glow : animation de box-shadow qui pulse
+   - shimmer : background-position qui se déplace
+
+4. Dans App.jsx :
+   - Importer AnimatePresence depuis framer-motion
+   - Encapsuler le LoadingScreen dans AnimatePresence (exit animation)
+   - Ajouter un fade-in sur le contenu principal avec motion.div
+
+5. LoadingScreen.jsx :
+   - Remplacer les divs par motion.div
+   - Ajouter exit={{ opacity: 0, scale: 0.95 }} sur le conteneur
+   - Animer chaque ligne avec initial={{ opacity: 0, x: -10 }}, animate={{ opacity: 1, x: 0 }}
+   - Animer "Done ✓" avec scale
+   - Ajouter un useEffect qui appelle onFinish() après 500ms quand isLeaving devient true
+
+6. Hero.jsx :
+   - Animer les symboles de code décoratifs ({, %, #, </>, ;}) avec des délais différents
+   - Grouper le texte (titre, divider, eyebrow, bio, CTAs, social links) dans un motion.div avec variants container (staggerChildren: 0.12, delayChildren: 0.15)
+   - Chaque enfant utilise un variant item (opacity: 0, y: 30 vers opacity: 1, y: 0)
+   - Améliorer les hover des boutons CTA : transition-all duration-300 hover:-translate-y-1 hover:shadow-glow-blue
+   - Améliorer les hover des icônes sociales : hover:-translate-y-1 hover:shadow-glow-purple
+   - Animer le portrait avec initial={{ opacity: 0, scale: 0.8 }}
+
+7. About.jsx :
+   - Envelopper la timeline des compétences dans Reveal
+   - Animer chaque item de la timeline avec motion.div (initial: opacity 0, x: -20, whileInView: x: 0)
+   - Envelopper le titre, les paragraphes dans Reveal avec délais progressifs
+   - Utiliser RevealStagger/RevealItem pour les 3 cartes highlight (staggerDelay: 0.12)
+   - Ajouter hover sur les cartes : hover:-translate-y-1 hover:shadow-glow-purple
+   - Utiliser RevealStagger/RevealItem pour le journey (3 cartes année)
+   - Ajouter hover sur chaque carte journey : hover:-translate-y-1 hover:shadow-glow-purple
+
+8. Skills.jsx :
+   - Envelopper l'eyebrow et le titre dans Reveal
+   - Chaque catégorie : titre dans Reveal
+   - Grille de skills avec RevealStagger/RevealItem (staggerDelay: 0.06)
+   - Chaque carte skill : motion.div avec whileHover={{ scale: 1.02 }}
+   - Barre de progression : motion.div avec initial={{ width: 0 }}, whileInView={{ width: skill.level + '%' }}
+
+9. Experience.jsx :
+   - Eyebrow + titre dans Reveal
+   - Timeline avec RevealStagger/RevealItem (staggerDelay: 0.15)
+   - Chaque item : whileHover={{ x: 4 }}, transition-all hover:-translate-y-0.5
+   - Ajouter animate-pulse-glow sur les icônes de la timeline
+
+10. Projects.jsx :
+    - Eyebrow + titre dans Reveal
+    - Grille avec RevealStagger/RevealItem (staggerDelay: 0.12)
+    - Chaque article : motion.div avec whileHover={{ scale: 1.01 }}
+    - Image : motion.img avec whileHover={{ scale: 1.08 }}
+    - Tech tags : hover avec border et text color
+    - Liens demo/code : transition-all hover:-translate-y-0.5
+
+11. Contact.jsx :
+    - Eyebrow, titre, intro, wink dans Reveal avec délais progressifs
+    - Liste des contacts animée avec motion.div (initial x: -20, whileInView: x: 0)
+    - Formulaire avec motion.div variants (staggerChildren: 0.08)
+    - Inputs/textarea : transition-all duration-300 focus:shadow-glow-purple
+    - Bouton submit : motion.button avec whileHover={{ scale: 1.02 }}, whileTap={{ scale: 0.98 }}
+    - Message de confirmation : motion.div initial opacity: 0, y: 10
+
+12. Footer.jsx :
+    - Envelopper tout le contenu dans Reveal
+    - Liens sociaux : motion.a avec whileHover={{ scale: 1.1 }}, hover:-translate-y-1 hover:shadow-glow-purple
+
+13. Navbar.jsx :
+    - Importer AnimatePresence, motion
+    - Menu mobile : utiliser AnimatePresence, initial={{ height: 0, opacity: 0 }}, animate={{ height: 'auto', opacity: 1 }}, exit={{ height: 0, opacity: 0 }}
+    - Liens du menu mobile : staggerChildren: 0.05 (initial x: -20)
+    - Liens desktop : motion.a avec whileHover={{ y: -1 }}
+    - Boutons langue/thème : transition-all hover
+
+14. CustomCursor.jsx :
+    - Ralentir le ressort : coefficient de 0.15 à 0.12
+    - Ajouter un effet dynamique : calculer la distance (dx, dy), ajuster le scale (1 + dist * 0.003) et l'opacité de la bordure (0.4 + dist * 0.005) du ring
+
+15. SkillBadge.jsx :
+    - Remplacer div par motion.div
+    - Ajouter initial={{ opacity: 0, scale: 0.5, y: 20 }}, animate={{ opacity: 1, scale: 1, y: 0 }}
+    - Ajouter whileHover={{ scale: 1.05 }}

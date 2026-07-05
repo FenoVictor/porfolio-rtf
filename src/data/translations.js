@@ -1,0 +1,344 @@
+// Dictionnaire de traductions statiques (textes d'interface, titres de
+// section, libellés). Le contenu dynamique (compétences, expériences,
+// projets) est traduit directement dans son fichier data/ correspondant,
+// sous forme de champs { fr, en }.
+export const translations = {
+  fr: {
+    nav: {
+      accueil: 'Accueil',
+      apropos: 'À propos',
+      competences: 'Compétences',
+      experiences: 'Expériences',
+      projets: 'Projets',
+      contact: 'Contact',
+    },
+    hero: {
+      eyebrow: 'Développeur Full Stack & Concepteur UI/UX',
+      headline: [
+        { text: 'Je ne code pas seulement des ', highlight: false },
+        { text: 'applications', highlight: true },
+        { text: ', je donne vie aux idées grâce au ', highlight: false },
+        { text: 'code', highlight: true },
+        { text: ', à la ', highlight: false },
+        { text: 'créativité', highlight: true },
+        { text: ' et à la ', highlight: false },
+        { text: 'technologie', highlight: true },
+        { text: '.', highlight: false },
+      ],
+      bio: [
+        { text: 'Je suis ', style: 'muted' },
+        { text: 'RANDRIATSITOHAINA Tsimamandro Feno', style: 'accent' },
+        {
+          text: ', étudiant en 2ᵉ année à l’École Nationale de l’Informatique (',
+          style: 'muted',
+        },
+        { text: 'ENI Toliara', style: 'primary' },
+        {
+          text: '), à la recherche d’un stage ou d’une alternance. Je construis plus que du code : je crée des solutions digitales qui donnent vie aux idées.',
+          style: 'muted',
+        },
+      ],
+      ctaProjects: 'Voir mes projets',
+      ctaCvView: 'Voir mon CV',
+      socialLabel: 'Retrouvez-moi sur mes réseaux',
+      imageAlt: 'Portrait de RANDRIATSITOHAINA Tsimamandro Feno',
+    },
+    about: {
+      eyebrow: '// À propos',
+      titlePrefix: 'Un peu plus sur ',
+      titleHighlight: 'mon parcours',
+      paragraphs: [
+        'Passionné par le développement web avant mes études à l’ENI, j’aime transformer une idée floue en une interface claire et un code fiable. Je m’intéresse aussi bien à la logique côté serveur qu’au détail d’une interaction côté client, avec le souci constant d’un code lisible et bien organisé.',
+        'Curieux, rigoureux et toujours en quête de nouveaux défis, je développe continuellement mes compétences en développement web, applications desktop, bases de données et conception UI/UX afin de construire des projets utiles et innovants.',
+      ],
+      competencies: [
+        {
+          id: 'web',
+          icon: 'Code2',
+          title: 'Développement Web',
+          text: 'Création de sites web modernes, responsives et performants avec HTML, CSS, JavaScript, React et PHP.',
+        },
+        {
+          id: 'desktop',
+          icon: 'Monitor',
+          title: 'Développement Desktop',
+          text: 'Développement d’applications de bureau en C# et C++, avec une attention particulière portée aux performances et à l’expérience utilisateur.',
+        },
+        {
+          id: 'backend',
+          icon: 'Database',
+          title: 'Bases de données & Backend',
+          text: 'Conception de bases de données relationnelles, développement d’API REST et création de solutions backend sécurisées avec PHP, Node.js et MySQL.',
+        },
+      ],
+      highlights: [
+        {
+          id: 'formation',
+          icon: 'GraduationCap',
+          title: 'Formation',
+          text: 'Étudiant en Licence 2 Informatique à l’École Nationale de l’Informatique (ENI) Toliara, à la recherche d’un stage ou d’une alternance.',
+          statValue: '2+',
+          statLabel: 'Années d’expérience',
+        },
+        {
+          id: 'objectif',
+          icon: 'Target',
+          title: 'Objectif',
+          text: 'Devenir un développeur Full Stack compétent et polyvalent, capable de concevoir des solutions innovantes et performantes qui apportent une réelle valeur.',
+          statValue: '8+',
+          statLabel: 'Projets réalisés',
+        },
+        {
+          id: 'approche',
+          icon: 'Sparkles',
+          title: 'Approche',
+          text: 'Un code propre, structuré et maintenable, une approche méthodique, orientée performance, expérience utilisateur et amélioration continue.',
+          statValue: '18/20',
+          statLabel: 'Note des évaluations académiques',
+        },
+      ],
+      journeyTitle: 'Étapes clés',
+      journey: [
+        {
+          year: '2024',
+          text: 'Début du parcours en développement informatique.',
+        },
+        {
+          year: '2025',
+          text: 'Création de projets web et approfondissement des technologies Full Stack.',
+        },
+        {
+          year: '2026',
+          text: 'Recherche d’un stage pour appliquer mes compétences dans un environnement professionnel.',
+        },
+      ],
+    },
+    skills: {
+      eyebrow: '// Compétences',
+      titlePrefix: 'Les outils avec lesquels ',
+      titleHighlight: 'je construis',
+      categories: {
+        Frontend: 'Frontend',
+        Backend: 'Backend',
+        Langages: 'Langages',
+        'Base de données': 'Base de données',
+        Outils: 'Outils',
+      },
+    },
+    experience: {
+      eyebrow: '// Expériences',
+      titlePrefix: 'Mon ',
+      titleHighlight: 'parcours',
+      typeLabels: {
+        formation: 'Formation',
+        stage: 'Stage',
+        'projet-academique': 'Projet académique',
+      },
+    },
+    projects: {
+      eyebrow: '// Projets',
+      titlePrefix: 'Quelques ',
+      titleHighlight: 'réalisations',
+      techLabel: 'Technologies utilisées',
+      demoLabel: 'Démo',
+      codeLabel: 'Code',
+    },
+    contact: {
+      eyebrow: '// Contact',
+      titlePrefix: 'Discutons de votre ',
+      titleHighlight: 'prochain projet',
+      intro:
+        'Actuellement à la recherche d’un stage de développeur full stack. N’hésitez pas à me contacter pour en discuter.',
+      wink: 'Merci de tester mes compétences en pratique 👏.',
+      locationLabel: 'Toliara, Madagascar',
+      form: {
+        name: 'Nom',
+        namePlaceholder: 'Votre nom',
+        email: 'Email',
+        emailPlaceholder: 'vous@exemple.com',
+        message: 'Message',
+        messagePlaceholder: 'Parlez-moi de votre projet ou de l’opportunité de stage...',
+        submit: 'Envoyer le message',
+        confirmation:
+          'Merci, votre message a bien été pris en compte (démo — à connecter à un service réel).',
+      },
+    },
+    footer: {
+      rights: 'Tous droits réservés.',
+    },
+    navbar: {
+      settingsLabel: 'Paramètres',
+      themeToggleLabel: 'Changer de thème',
+      languageToggleLabel: 'Changer de langue',
+    },
+  },
+
+  en: {
+    nav: {
+      accueil: 'Home',
+      apropos: 'About',
+      competences: 'Skills',
+      experiences: 'Experience',
+      projets: 'Projects',
+      contact: 'Contact',
+    },
+    hero: {
+      eyebrow: 'Full Stack Developer & UI/UX Designer',
+      headline: [
+        { text: 'I don’t just write ', highlight: false },
+        { text: 'applications', highlight: true },
+        { text: ', I bring ideas to life through ', highlight: false },
+        { text: 'code', highlight: true },
+        { text: ', ', highlight: false },
+        { text: 'creativity', highlight: true },
+        { text: ' and ', highlight: false },
+        { text: 'technology', highlight: true },
+        { text: '.', highlight: false },
+      ],
+      bio: [
+        { text: 'I’m ', style: 'muted' },
+        { text: 'RANDRIATSITOHAINA Tsimamandro Feno', style: 'accent' },
+        {
+          text: ', a 2nd-year student at École Nationale de l’Informatique (',
+          style: 'muted',
+        },
+        { text: 'ENI Toliara', style: 'primary' },
+        {
+          text: '), looking for an internship or work-study program. I build more than code — I craft digital solutions that bring ideas to life.',
+          style: 'muted',
+        },
+      ],
+      ctaProjects: 'View my projects',
+      ctaCvView: 'View my CV',
+      socialLabel: 'Find me on my socials',
+      imageAlt: 'Portrait of RANDRIATSITOHAINA Tsimamandro Feno',
+    },
+    about: {
+      eyebrow: '// About',
+      titlePrefix: 'A bit more about ',
+      titleHighlight: 'my journey',
+      paragraphs: [
+        'Passionate about web development even before starting at ENI, I enjoy turning a vague idea into a clear interface and reliable code. I’m just as interested in server-side logic as in the detail of a client-side interaction, always aiming for readable, well-organized code.',
+        'Curious, rigorous and always looking for new challenges, I keep building my skills in web development, desktop apps, databases and UI/UX design to build useful, innovative projects.',
+      ],
+      competencies: [
+        {
+          id: 'web',
+          icon: 'Code2',
+          title: 'Web Development',
+          text: 'Building modern, responsive, high-performance websites with HTML, CSS, JavaScript, React and PHP.',
+        },
+        {
+          id: 'desktop',
+          icon: 'Monitor',
+          title: 'Desktop Development',
+          text: 'Building desktop applications in C# and C++, with a strong focus on performance and user experience.',
+        },
+        {
+          id: 'backend',
+          icon: 'Database',
+          title: 'Databases & Backend',
+          text: 'Designing relational databases, building REST APIs, and creating secure backend solutions with PHP, Node.js and MySQL.',
+        },
+      ],
+      highlights: [
+        {
+          id: 'formation',
+          icon: 'GraduationCap',
+          title: 'Education',
+          text: 'Second-year Computer Science student at École Nationale de l’Informatique (ENI) Toliara, looking for an internship or work-study program.',
+          statValue: '2+',
+          statLabel: 'Years of experience',
+        },
+        {
+          id: 'objectif',
+          icon: 'Target',
+          title: 'Goal',
+          text: 'Becoming a skilled, versatile Full Stack developer, able to design innovative, high-performing solutions that bring real value.',
+          statValue: '8+',
+          statLabel: 'Projects completed',
+        },
+        {
+          id: 'approche',
+          icon: 'Sparkles',
+          title: 'Approach',
+          text: 'Clean, structured, maintainable code, with a methodical approach focused on performance, user experience and continuous improvement.',
+          statValue: '18/20',
+          statLabel: 'Academic evaluation score',
+        },
+      ],
+      journeyTitle: 'Key milestones',
+      journey: [
+        {
+          year: '2024',
+          text: 'Started my journey in software development.',
+        },
+        {
+          year: '2025',
+          text: 'Built web projects and deepened my Full Stack skills.',
+        },
+        {
+          year: '2026',
+          text: 'Looking for an internship to apply my skills in a professional environment.',
+        },
+      ],
+    },
+    skills: {
+      eyebrow: '// Skills',
+      titlePrefix: 'The tools I ',
+      titleHighlight: 'build with',
+      categories: {
+        Frontend: 'Frontend',
+        Backend: 'Backend',
+        Langages: 'Languages',
+        'Base de données': 'Database',
+        Outils: 'Tools',
+      },
+    },
+    experience: {
+      eyebrow: '// Experience',
+      titlePrefix: 'My ',
+      titleHighlight: 'journey',
+      typeLabels: {
+        formation: 'Education',
+        stage: 'Internship',
+        'projet-academique': 'Academic project',
+      },
+    },
+    projects: {
+      eyebrow: '// Projects',
+      titlePrefix: 'A few ',
+      titleHighlight: 'projects',
+      techLabel: 'Technologies used',
+      demoLabel: 'Demo',
+      codeLabel: 'Code',
+    },
+    contact: {
+      eyebrow: '// Contact',
+      titlePrefix: 'Let’s talk about your ',
+      titleHighlight: 'next project',
+      intro:
+        'Currently looking for a full-stack developer internship. Feel free to reach out to talk about it.',
+      wink: 'Thanks for testing my skills in practice 👏.',
+      locationLabel: 'Toliara, Madagascar',
+      form: {
+        name: 'Name',
+        namePlaceholder: 'Your name',
+        email: 'Email',
+        emailPlaceholder: 'you@example.com',
+        message: 'Message',
+        messagePlaceholder: 'Tell me about your project or internship opportunity...',
+        submit: 'Send message',
+        confirmation: 'Thanks, your message was received (demo — connect to a real service).',
+      },
+    },
+    footer: {
+      rights: 'All rights reserved.',
+    },
+    navbar: {
+      settingsLabel: 'Settings',
+      themeToggleLabel: 'Toggle theme',
+      languageToggleLabel: 'Switch language',
+    },
+  },
+}
