@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
@@ -6,16 +6,23 @@ import About from './components/About'
 import Skills from './components/Skills'
 import Experience from './components/Experience'
 import Projects from './components/Projects'
-import Chat from './components/Chat'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
 import CustomCursor from './components/CustomCursor'
 import LoadingScreen from './components/LoadingScreen'
 import ParticlesBackground from './components/ParticlesBackground'
 import EasterEgg from './components/EasterEgg'
+import ChatButton from './components/ChatButton'
 
 function App() {
   const [isLoading, setIsLoading] = useState(true)
+
+  useEffect(() => {
+    if ('scrollRestoration' in history) {
+      history.scrollRestoration = 'manual'
+    }
+    window.scrollTo(0, 0)
+  }, [])
 
   return (
     <div className="relative min-h-screen">
@@ -25,6 +32,7 @@ function App() {
       <ParticlesBackground />
       <CustomCursor />
       <EasterEgg />
+      <ChatButton />
       <motion.div
         className="relative z-10"
         initial={{ opacity: 0 }}
@@ -38,7 +46,6 @@ function App() {
           <Skills />
           <Experience />
           <Projects />
-          <Chat />
           <Contact />
         </main>
         <Footer />
