@@ -47,6 +47,12 @@ function Navbar() {
     return () => observer.disconnect()
   }, [])
 
+  function scrollToSection(sectionId) {
+    setIsMenuOpen(false)
+    const el = document.getElementById(sectionId)
+    if (el) el.scrollIntoView({ behavior: 'smooth' })
+  }
+
   return (
     <motion.header
       className={`sticky top-0 z-50 border-b transition-all duration-300 ${
@@ -60,7 +66,12 @@ function Navbar() {
     >
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-10">
         {/* Logo */}
-        <a href="#accueil" className="flex items-center gap-3" id="nav-logo">
+        <button
+          type="button"
+          onClick={() => scrollToSection('accueil')}
+          className="flex items-center gap-3"
+          id="nav-logo"
+        >
           <img
             src={rtfLogo}
             alt="Logo RTF"
@@ -69,7 +80,7 @@ function Navbar() {
           <span className="hidden text-lg font-semibold tracking-wide text-text-primary sm:inline">
             PORTFOLIO<span className="text-gradient-brand">.DEV</span>
           </span>
-        </a>
+        </button>
 
         {/* Liens desktop */}
         <ul className="hidden items-center gap-8 lg:flex" id="nav-links">
@@ -78,17 +89,16 @@ function Navbar() {
             const isActive = activeSection === link.id
             return (
               <li key={link.id} className="relative">
-                <motion.a
-                  href={link.href}
+                <button
+                  type="button"
+                  onClick={() => scrollToSection(link.id)}
                   className={`flex items-center gap-2 pb-1 text-sm font-medium transition-colors ${
                     isActive ? 'text-text-primary' : 'text-text-muted hover:text-text-primary'
                   }`}
-                  whileHover={{ y: -1 }}
-                  transition={{ duration: 0.2 }}
                 >
                   <Icon size={16} />
                   {t(`nav.${link.labelKey}`)}
-                </motion.a>
+                </button>
                 {isActive && (
                   <motion.div
                     className="absolute -bottom-px left-0 right-0 h-0.5 rounded-full bg-gradient-brand"
@@ -154,14 +164,14 @@ function Navbar() {
                   animate={isMenuOpen ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
                   transition={{ duration: 0.2, delay: isMenuOpen ? i * 0.05 : 0 }}
                 >
-                  <a
-                    href={link.href}
-                    onClick={() => setIsMenuOpen(false)}
-                    className="flex items-center gap-3 rounded-lg px-3 py-3 text-sm font-medium text-text-muted transition-all duration-200 hover:bg-border-faint hover:text-text-primary"
+                  <button
+                    type="button"
+                    onClick={() => scrollToSection(link.id)}
+                    className="flex w-full items-center gap-3 rounded-lg px-3 py-3 text-sm font-medium text-text-muted transition-all duration-200 hover:bg-border-faint hover:text-text-primary"
                   >
                     <Icon size={16} />
                     {t(`nav.${link.labelKey}`)}
-                  </a>
+                  </button>
                 </motion.li>
               )
             })}
