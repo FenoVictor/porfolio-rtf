@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { AnimatePresence, motion } from 'framer-motion'
+import { motion } from 'framer-motion'
 import { Home, User, Code2, Briefcase, Rocket, Mail, Globe, Sun, Moon, Menu, X } from 'lucide-react'
 import { navLinks } from '../data/navLinks'
 import rtfLogo from '../assets/rtf-logo.webp'
@@ -50,7 +50,9 @@ function Navbar() {
   function scrollToSection(sectionId) {
     setIsMenuOpen(false)
     const el = document.getElementById(sectionId)
-    if (el) el.scrollIntoView({ behavior: 'smooth' })
+    if (el) {
+      setTimeout(() => el.scrollIntoView({ behavior: 'smooth' }), 50)
+    }
   }
 
   return (
@@ -147,23 +149,18 @@ function Navbar() {
       </nav>
 
       {/* Menu mobile */}
-      <motion.div
+      <div
         id="mobile-menu"
-        className="overflow-hidden border-t border-border-faint lg:hidden"
-        animate={isMenuOpen ? { height: 'auto', opacity: 1 } : { height: 0, opacity: 0 }}
-        transition={{ duration: 0.25, ease: 'easeInOut' }}
+        className={`overflow-hidden border-t border-border-faint transition-all duration-300 ease-in-out lg:hidden ${
+          isMenuOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+        }`}
       >
         <div className="px-6 py-4">
           <ul className="flex flex-col gap-1">
-            {navLinks.map((link, i) => {
+            {navLinks.map((link) => {
               const Icon = iconMap[link.icon]
               return (
-                <motion.li
-                  key={link.id}
-                  initial={false}
-                  animate={isMenuOpen ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
-                  transition={{ duration: 0.2, delay: isMenuOpen ? i * 0.05 : 0 }}
-                >
+                <li key={link.id}>
                   <button
                     type="button"
                     onClick={() => scrollToSection(link.id)}
@@ -172,16 +169,15 @@ function Navbar() {
                     <Icon size={16} />
                     {t(`nav.${link.labelKey}`)}
                   </button>
-                </motion.li>
+                </li>
               )
             })}
           </ul>
 
-          <motion.div
-            className="mt-3 flex items-center gap-3 border-t border-border-faint pt-3"
-            initial={false}
-            animate={isMenuOpen ? { opacity: 1 } : { opacity: 0 }}
-            transition={{ duration: 0.2, delay: isMenuOpen ? 0.2 : 0 }}
+          <div
+            className={`mt-3 flex items-center gap-3 border-t border-border-faint pt-3 transition-opacity duration-300 delay-150 ${
+              isMenuOpen ? 'opacity-100' : 'opacity-0'
+            }`}
           >
             <button
               type="button"
@@ -200,9 +196,9 @@ function Navbar() {
             >
               {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
             </button>
-          </motion.div>
+          </div>
         </div>
-      </motion.div>
+      </div>
     </motion.header>
   )
 }
